@@ -43,30 +43,31 @@ st.markdown("""
     /* Import professional fonts */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
-    /* Global styles */
+    /* Global styles - softer background for better contrast */
     .stApp {
         font-family: 'Inter', sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #f5f7fa 0%, #e9ecf5 100%);
     }
     
-    /* Main container */
+    /* Main container - improved contrast */
     .main-container {
         background: white;
         border-radius: 20px;
         padding: 2rem;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
         margin: 1rem;
+        color: #1a2639;
     }
     
-    /* Header styles */
+    /* Header styles - keep vibrant but ensure white text */
     .traction-header {
         background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
         padding: 2rem;
         border-radius: 15px;
         margin-bottom: 2rem;
-        color: white;
+        color: white !important;
         text-align: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
     
     .traction-title {
@@ -74,20 +75,36 @@ st.markdown("""
         font-weight: 700;
         margin-bottom: 0.5rem;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        color: white !important;
     }
     
     .traction-subtitle {
         font-size: 1.2rem;
-        opacity: 0.9;
+        opacity: 0.95;
         font-weight: 300;
+        color: white !important;
     }
     
-    /* Metric cards */
+    /* Feature badges - improved readability */
+    .feature-badge {
+        background: rgba(255,255,255,0.15);
+        color: white !important;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        display: inline-block;
+        margin: 0.25rem;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    /* Metric cards - improved text contrast */
     .metric-card {
         background: white;
         padding: 1.5rem;
         border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         text-align: center;
         transition: transform 0.3s ease;
         border: 1px solid #e0e0e0;
@@ -95,74 +112,71 @@ st.markdown("""
     
     .metric-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     }
     
     .metric-value {
         font-size: 2.5rem;
         font-weight: 700;
-        color: #1e3c72;
+        color: #1e3c72 !important;
     }
     
     .metric-label {
         font-size: 1rem;
-        color: #666;
+        color: #2d3748 !important;
+        font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 1px;
     }
     
-    /* Feature badges */
-    .feature-badge {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 25px;
-        font-size: 0.9rem;
-        font-weight: 500;
-        display: inline-block;
-        margin: 0.25rem;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    
-    /* Contract cards */
+    /* Contract cards - better text contrast */
     .contract-card {
-        background: #f8f9fa;
+        background: #ffffff;
         border-left: 4px solid #667eea;
         padding: 1rem;
         border-radius: 10px;
         margin-bottom: 1rem;
         transition: all 0.3s ease;
         cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        color: #1a2639 !important;
     }
     
     .contract-card:hover {
-        background: #f0f2f5;
+        background: #f8faff;
         border-left-width: 6px;
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.15);
     }
     
-    /* Alert styles */
+    .contract-card b, .contract-card strong {
+        color: #1e3c72 !important;
+    }
+    
+    /* Alert styles - improved contrast */
     .success-alert {
         background: #d4edda;
-        color: #155724;
+        color: #155724 !important;
         padding: 1rem;
         border-radius: 10px;
         border-left: 4px solid #28a745;
         margin: 1rem 0;
+        font-weight: 500;
     }
     
     .warning-alert {
         background: #fff3cd;
-        color: #856404;
+        color: #856404 !important;
         padding: 1rem;
         border-radius: 10px;
         border-left: 4px solid #ffc107;
         margin: 1rem 0;
+        font-weight: 500;
     }
     
-    /* Button styles */
+    /* Button styles - keep vibrant */
     .stButton > button {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        color: white !important;
         border: none;
         padding: 0.75rem 2rem;
         font-weight: 600;
@@ -170,15 +184,16 @@ st.markdown("""
         transition: all 0.3s ease;
         text-transform: uppercase;
         letter-spacing: 1px;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
     }
     
     .stButton > button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        color: white !important;
     }
     
-    /* Tab styling */
+    /* Tab styling - improved text contrast */
     .stTabs [data-baseweb="tab-list"] {
         gap: 2rem;
         background: white;
@@ -189,7 +204,7 @@ st.markdown("""
     
     .stTabs [data-baseweb="tab"] {
         font-weight: 600;
-        color: #666;
+        color: #2d3748 !important;
     }
     
     .stTabs [aria-selected="true"] {
@@ -197,10 +212,10 @@ st.markdown("""
         border-bottom: 3px solid #667eea !important;
     }
     
-    /* Footer */
+    /* Footer - keep dark but ensure readability */
     .footer {
         background: #1a1a2e;
-        color: white;
+        color: rgba(255,255,255,0.9) !important;
         padding: 2rem;
         border-radius: 15px;
         margin-top: 3rem;
@@ -208,17 +223,87 @@ st.markdown("""
     }
     
     .footer a {
-        color: #667eea;
+        color: #a0c0ff !important;
         text-decoration: none;
         font-weight: 500;
     }
     
     .footer a:hover {
         text-decoration: underline;
+        color: white !important;
+    }
+    
+    .footer div {
+        color: rgba(255,255,255,0.9) !important;
+    }
+    
+    /* Ensure all text has good contrast */
+    h1, h2, h3, h4, h5, h6 {
+        color: #1a2639 !important;
+    }
+    
+    p, li, span:not(.feature-badge) {
+        color: #2d3748 !important;
+    }
+    
+    .stMarkdown {
+        color: #2d3748 !important;
+    }
+    
+    /* Form elements - better visibility */
+    .stTextInput label, .stSelectbox label, .stCheckbox label {
+        color: #2d3748 !important;
+        font-weight: 500 !important;
+    }
+    
+    /* DataFrame text */
+    .stDataFrame {
+        color: #2d3748 !important;
+    }
+    
+    /* Expander headers */
+    .streamlit-expanderHeader {
+        color: #1e3c72 !important;
+        font-weight: 600 !important;
+        background: #f8f9fa;
+        border-radius: 5px;
+    }
+    
+    /* Success/Info/Warning/Error messages - ensure contrast */
+    .stSuccess {
+        background: #d4edda !important;
+        color: #155724 !important;
+        font-weight: 500 !important;
+    }
+    
+    .stInfo {
+        background: #d1ecf1 !important;
+        color: #0c5460 !important;
+        font-weight: 500 !important;
+    }
+    
+    .stWarning {
+        background: #fff3cd !important;
+        color: #856404 !important;
+        font-weight: 500 !important;
+    }
+    
+    .stError {
+        background: #f8d7da !important;
+        color: #721c24 !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Keep header text white */
+    .traction-header h1,
+    .traction-header h2,
+    .traction-header h3,
+    .traction-header p,
+    .traction-header span {
+        color: white !important;
     }
 </style>
 """, unsafe_allow_html=True)
-
 # ============================================================================
 # SESSION STATE INITIALIZATION
 # ============================================================================
@@ -1246,3 +1331,4 @@ if auto_save and len(st.session_state.uploaded_contracts) > 0:
         st.session_state.last_save = datetime.now()
 
         st.toast("💾 Project auto-saved", icon="✅")
+
