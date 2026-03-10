@@ -17,7 +17,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import timedelta
 import time
-
+import numpy as np
 # ============================================================================
 # PAGE CONFIGURATION
 # ============================================================================
@@ -1280,6 +1280,7 @@ if auto_save and len(st.session_state.uploaded_contracts) > 0:
         st.session_state.last_save = datetime.now()
 
         st.toast("💾 Project auto-saved", icon="✅")
+
 
 
 
