@@ -881,31 +881,32 @@ with tab3:
                  "🔨 Contractor-Optimized - Protect Builder",
                  "🛡️ Risk-Minimized - Reduce Exposure",
                  "💰 Lender-Optimized - Protect Financing",
-                 "🎯 Custom Strategy"]
+                 "🎯 Custom Strategy"],
+                key="synthesis_goal_select"
             )
             
             if synthesis_goal == "🎯 Custom Strategy":
-                custom_goal = st.text_area("Describe your custom strategy:")
+                custom_goal = st.text_area("Describe your custom strategy:", key="custom_goal_input")
             else:
                 custom_goal = synthesis_goal
             
             st.markdown("### 📝 **Contract Sections**")
             
             sections = {
-                "Preamble": st.checkbox("Preamble/Recitals", value=True),
-                "Definitions": st.checkbox("Definitions", value=True),
-                "Payment": st.checkbox("Payment Terms", value=True),
-                "Indemnity": st.checkbox("Indemnification", value=True),
-                "Force Majeure": st.checkbox("Force Majeure", value=True),
-                "Termination": st.checkbox("Termination", value=True),
-                "Dispute Resolution": st.checkbox("Dispute Resolution", value=True),
-                "Insurance": st.checkbox("Insurance", value=True),
-                "Warranties": st.checkbox("Warranties", value=True),
-                "Change Orders": st.checkbox("Change Orders", value=True),
-                "Delay Damages": st.checkbox("Delay Damages", value=True),
-                "Lien Rights": st.checkbox("Lien Rights", value=True),
-                "Miscellaneous": st.checkbox("Miscellaneous", value=True),
-                "Signatures": st.checkbox("Signature Blocks", value=True)
+                "Preamble": st.checkbox("Preamble/Recitals", value=True, key="sec_preamble"),
+                "Definitions": st.checkbox("Definitions", value=True, key="sec_definitions"),
+                "Payment": st.checkbox("Payment Terms", value=True, key="sec_payment"),
+                "Indemnity": st.checkbox("Indemnification", value=True, key="sec_indemnity"),
+                "Force Majeure": st.checkbox("Force Majeure", value=True, key="sec_force"),
+                "Termination": st.checkbox("Termination", value=True, key="sec_termination"),
+                "Dispute Resolution": st.checkbox("Dispute Resolution", value=True, key="sec_dispute"),
+                "Insurance": st.checkbox("Insurance", value=True, key="sec_insurance"),
+                "Warranties": st.checkbox("Warranties", value=True, key="sec_warranties"),
+                "Change Orders": st.checkbox("Change Orders", value=True, key="sec_change"),
+                "Delay Damages": st.checkbox("Delay Damages", value=True, key="sec_delay"),
+                "Lien Rights": st.checkbox("Lien Rights", value=True, key="sec_lien"),
+                "Miscellaneous": st.checkbox("Miscellaneous", value=True, key="sec_misc"),
+                "Signatures": st.checkbox("Signature Blocks", value=True, key="sec_signatures")
             }
         
         with col2:
@@ -913,21 +914,24 @@ with tab3:
             
             tone = st.select_slider(
                 "Contract Tone:",
-                options=["Conservative", "Moderate", "Aggressive", "Balanced"]
+                options=["Conservative", "Moderate", "Aggressive", "Balanced"],
+                key="tone_slider"
             )
             
             detail_level = st.select_slider(
                 "Detail Level:",
-                options=["Concise", "Standard", "Detailed", "Comprehensive"]
+                options=["Concise", "Standard", "Detailed", "Comprehensive"],
+                key="detail_slider"
             )
             
-            include_explanations = st.checkbox("Include clause explanations", value=True)
-            include_alternatives = st.checkbox("Include alternative clauses", value=False)
-            highlight_risks = st.checkbox("Highlight risk areas", value=True)
+            include_explanations = st.checkbox("Include clause explanations", value=True, key="include_explanations")
+            include_alternatives = st.checkbox("Include alternative clauses", value=False, key="include_alternatives")
+            highlight_risks = st.checkbox("Highlight risk areas", value=True, key="highlight_risks")
             
             special_instructions = st.text_area(
                 "Special Instructions:",
-                placeholder="E.g., Include COVID-19 clause, Add sustainability requirements..."
+                placeholder="E.g., Include COVID-19 clause, Add sustainability requirements...",
+                key="special_instructions"
             )
         
         if st.button("🚀 **GENERATE SYNTHESIZED CONTRACT**", type="primary", use_container_width=True):
@@ -993,50 +997,33 @@ The contract should be ready for legal review and use in actual construction pro
                     st.markdown("### Generated by Traction Law AI")
                     st.markdown(synthesized)
                     
-                   # Change THIS section (around line 1000-1100):
-col1, col2, col3, col4 = st.columns(4)
-with col1:
-    st.download_button(
-        label="📄 TXT",
-        data=synthesized,
-        file_name=f"TractionLaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.txt"
-    )
-with col2:
-    st.download_button(
-        label="📑 Markdown",
-        data=f"# Synthesized Construction Contract\n\n*Generated by Traction Law AI*\n\n{synthesized}",
-        file_name=f"TractionLaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.md"
-    )
-with col3:
-    st.download_button(
-        label="📋 HTML",
-        data=f"<html><body><h1>Synthesized Contract</h1>{synthesized}</body></html>",
-        file_name=f"TractionLaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.html"
-    )
-
-# To THIS (with unique keys):
-col1, col2, col3, col4 = st.columns(4)
-with col1:
-    st.download_button(
-        label="📄 TXT",
-        data=synthesized,
-        file_name=f"TractionLaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.txt",
-        key=f"download_txt_{datetime.now().timestamp()}"  # ADD THIS
-    )
-with col2:
-    st.download_button(
-        label="📑 Markdown",
-        data=f"# Synthesized Construction Contract\n\n*Generated by Traction Law AI*\n\n{synthesized}",
-        file_name=f"TractionLaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.md",
-        key=f"download_md_{datetime.now().timestamp()}"  # ADD THIS
-    )
-with col3:
-    st.download_button(
-        label="📋 HTML",
-        data=f"<html><body><h1>Synthesized Contract</h1>{synthesized}</body></html>",
-        file_name=f"TractionLaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.html",
-        key=f"download_html_{datetime.now().timestamp()}"  # ADD THIS
-    )
+                    # Download options - FIXED INDENTATION AND ADDED UNIQUE KEYS
+                    col1, col2, col3, col4 = st.columns(4)
+                    
+                    with col1:
+                        st.download_button(
+                            label="📄 TXT",
+                            data=synthesized,
+                            file_name=f"TractionLaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.txt",
+                            key=f"download_txt_{datetime.now().timestamp()}"
+                        )
+                    
+                    with col2:
+                        st.download_button(
+                            label="📑 Markdown",
+                            data=f"# Synthesized Construction Contract\n\n*Generated by Traction Law AI*\n\n{synthesized}",
+                            file_name=f"TractionLaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.md",
+                            key=f"download_md_{datetime.now().timestamp()}"
+                        )
+                    
+                    with col3:
+                        st.download_button(
+                            label="📋 HTML",
+                            data=f"<html><body><h1>Synthesized Contract</h1>{synthesized}</body></html>",
+                            file_name=f"TractionLaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.html",
+                            key=f"download_html_{datetime.now().timestamp()}"
+                        )
+                    
                     with col4:
                         st.success("✅ Ready for review")
                     
@@ -1044,6 +1031,7 @@ with col3:
                     
                 except Exception as e:
                     st.error(f"Synthesis error: {e}")
+                    st.exception(e)  # This will show the full error for debugging
 
 # ============================================================================
 # TAB 4: RISK DASHBOARD
@@ -1331,4 +1319,5 @@ if auto_save and len(st.session_state.uploaded_contracts) > 0:
         st.session_state.last_save = datetime.now()
 
         st.toast("💾 Project auto-saved", icon="✅")
+
 
