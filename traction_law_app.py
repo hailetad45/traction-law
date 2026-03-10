@@ -1243,46 +1243,7 @@ with tab6:
 # CELEBRATION BANNER - FIXED VERSION (NO EMOJI ERRORS)
 # ============================================================================
 
-st.markdown("---")
 
-# Celebration button in sidebar
-with st.sidebar:
-    st.markdown("---")
-    if st.button("🎉 CELEBRATE! 🎉", use_container_width=True):
-        st.session_state.celebrate = True
-
-# Celebration banner
-if 'celebrate' not in st.session_state:
-    st.session_state.celebrate = False
-
-if st.session_state.celebrate:
-    st.balloons()
-    st.snow()
-    
-    # Using HTML entities instead of raw emojis
-    st.markdown("""
-    <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; margin: 2rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-        <h1 style="color: white; font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">&#127881; TRACTION LAW &#127881;</h1>
-        <h2 style="color: white; font-size: 2rem; margin-bottom: 1rem;">Contract Intelligence Platform</h2>
-        <p style="color: white; font-size: 1.2rem; margin-bottom: 2rem;">Making construction contracts smarter, faster, and more accessible</p>
-        <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem;">
-            <span style="color: white; font-size: 2rem;">&#9874;</span>
-            <span style="color: white; font-size: 2rem;">&#127969;</span>
-            <span style="color: white; font-size: 2rem;">&#128211;</span>
-            <span style="color: white; font-size: 2rem;">&#10024;</span>
-            <span style="color: white; font-size: 2rem;">&#128640;</span>
-        </div>
-        <p style="color: white; font-size: 1rem; opacity: 0.9;">Built with &#10084;&#65039; by Traction Law Team</p>
-        <p style="color: white; font-size: 0.9rem; margin-top: 1rem; opacity: 0.7;">Version 2.0 | Enterprise Edition</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Dismiss button
-    col1, col2, col3 = st.columns(3)
-    with col2:
-        if st.button("✨ Awesome! ✨"):
-            st.session_state.celebrate = False
-            st.rerun()
 # ============================================================================
 # FOOTER
 # ============================================================================
@@ -1319,5 +1280,6 @@ if auto_save and len(st.session_state.uploaded_contracts) > 0:
         st.session_state.last_save = datetime.now()
 
         st.toast("💾 Project auto-saved", icon="✅")
+
 
 
