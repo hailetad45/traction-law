@@ -1,5 +1,5 @@
 # ============================================================================
-# TRACTION LAW CONTRACT ANALYZER
+# LUCKY STRIKE LAW CONTRACT ANALYZER
 # Enterprise Edition v2.0
 # ============================================================================
 
@@ -23,14 +23,14 @@ import numpy as np
 # ============================================================================
 
 st.set_page_config(
-    page_title="TRACTION LAW - Contract Intelligence Platform",
+    page_title="LUCKY STRIKE LAW - Contract Intelligence Platform",
     page_icon="⚖️",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
-        'Get Help': 'https://www.tractionlaw.com/support',
-        'Report a bug': 'https://www.tractionlaw.com/bug',
-        'About': '# Traction Law Contract Analyzer\nProfessional Construction Contract Intelligence Platform v2.0'
+        'Get Help': 'https://www.LUCKY STRIKElaw.com/support',
+        'Report a bug': 'https://www.LUCKY STRIKElaw.com/bug',
+        'About': '# LUCKY STRIKE Law Contract Analyzer\nProfessional Construction Contract Intelligence Platform v2.0'
     }
 )
 
@@ -60,7 +60,7 @@ st.markdown("""
     }
     
     /* Header styles - keep vibrant but ensure white text */
-    .traction-header {
+    .LUCKY STRIKE-header {
         background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
         padding: 2rem;
         border-radius: 15px;
@@ -70,7 +70,7 @@ st.markdown("""
         box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
     
-    .traction-title {
+    .LUCKY STRIKE-title {
         font-size: 3.5rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
@@ -78,7 +78,7 @@ st.markdown("""
         color: white !important;
     }
     
-    .traction-subtitle {
+    .LUCKY STRIKE-subtitle {
         font-size: 1.2rem;
         opacity: 0.95;
         font-weight: 300;
@@ -295,11 +295,11 @@ st.markdown("""
     }
     
     /* Keep header text white */
-    .traction-header h1,
-    .traction-header h2,
-    .traction-header h3,
-    .traction-header p,
-    .traction-header span {
+    .LUCKY STRIKE-header h1,
+    .LUCKY STRIKE-header h2,
+    .LUCKY STRIKE-header h3,
+    .LUCKY STRIKE-header p,
+    .LUCKY STRIKE-header span {
         color: white !important;
     }
 </style>
@@ -372,7 +372,7 @@ def save_project():
     st.session_state.saved_projects[project_name] = project_data
     
     # Save to file
-    with open(f'traction_law_project_{datetime.now().strftime("%Y%m%d")}.json', 'w') as f:
+    with open(f'LUCKY STRIKE_law_project_{datetime.now().strftime("%Y%m%d")}.json', 'w') as f:
         json.dump(project_data, f, indent=2)
     
     return project_name
@@ -394,9 +394,9 @@ def load_project(project_name):
 # ============================================================================
 
 st.markdown("""
-<div class="traction-header">
-    <div class="traction-title">⚖️ TRACTION LAW</div>
-    <div class="traction-subtitle">Contract Intelligence Platform | Enterprise Edition v2.0</div>
+<div class="LUCKY STRIKE-header">
+    <div class="LUCKY STRIKE-title">⚖️ LUCKY STRIKE LAW</div>
+    <div class="LUCKY STRIKE-subtitle">Contract Intelligence Platform | Enterprise Edition v2.0</div>
     <div style="margin-top: 1rem;">
         <span class="feature-badge">AI-Powered Analysis</span>
         <span class="feature-badge">Multi-Jurisdiction</span>
@@ -539,7 +539,7 @@ with st.expander("🔑 **API CONFIGURATION**", expanded=True):
         st.metric("Risk Assessments", len(st.session_state.risk_scores))
     
     st.markdown("---")
-    st.caption("© 2025 Traction Law Inc. All rights reserved.")
+    st.caption("© 2025 LUCKY STRIKE Law Inc. All rights reserved.")
     st.caption("Enterprise License | Professional Use Only")
 
 # ============================================================================
@@ -770,7 +770,7 @@ with tab2:
             elif not selected_clauses:
                 st.error("Please select at least 1 clause")
             else:
-                with st.spinner("🧠 Traction AI analyzing contracts..."):
+                with st.spinner("🧠 LUCKY STRIKE AI analyzing contracts..."):
                     analyses = []
                     progress_bar = st.progress(0)
                     
@@ -935,7 +935,7 @@ with tab3:
             )
         
         if st.button("🚀 **GENERATE SYNTHESIZED CONTRACT**", type="primary", use_container_width=True):
-            with st.spinner("🧠 Traction AI synthesizing optimal contract..."):
+            with st.spinner("🧠 LUCKY STRIKE AI synthesizing optimal contract..."):
                 # Build context
                 context = "CONTRACT ANALYSES:\n\n"
                 for a in st.session_state.analyses:
@@ -994,7 +994,7 @@ The contract should be ready for legal review and use in actual construction pro
                     # Display
                     st.markdown("---")
                     st.markdown("## 📄 **Synthesized Construction Contract**")
-                    st.markdown("### Generated by Traction Law AI")
+                    st.markdown("### Generated by LUCKY STRIKE Law AI")
                     st.markdown(synthesized)
                     
                     # Download options - FIXED INDENTATION AND ADDED UNIQUE KEYS
@@ -1004,15 +1004,15 @@ The contract should be ready for legal review and use in actual construction pro
                         st.download_button(
                             label="📄 TXT",
                             data=synthesized,
-                            file_name=f"TractionLaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.txt",
+                            file_name=f"LUCKY STRIKELaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.txt",
                             key=f"download_txt_{datetime.now().timestamp()}"
                         )
                     
                     with col2:
                         st.download_button(
                             label="📑 Markdown",
-                            data=f"# Synthesized Construction Contract\n\n*Generated by Traction Law AI*\n\n{synthesized}",
-                            file_name=f"TractionLaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.md",
+                            data=f"# Synthesized Construction Contract\n\n*Generated by LUCKY STRIKE Law AI*\n\n{synthesized}",
+                            file_name=f"LUCKY STRIKELaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.md",
                             key=f"download_md_{datetime.now().timestamp()}"
                         )
                     
@@ -1020,7 +1020,7 @@ The contract should be ready for legal review and use in actual construction pro
                         st.download_button(
                             label="📋 HTML",
                             data=f"<html><body><h1>Synthesized Contract</h1>{synthesized}</body></html>",
-                            file_name=f"TractionLaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.html",
+                            file_name=f"LUCKY STRIKELaw_Synthesis_{datetime.now().strftime('%Y%m%d_%H%M')}.html",
                             key=f"download_html_{datetime.now().timestamp()}"
                         )
                     
@@ -1118,7 +1118,7 @@ with tab4:
 # ============================================================================
 
 with tab5:
-    st.markdown("## 📚 **Traction Law Knowledge Base**")
+    st.markdown("## 📚 **LUCKY STRIKE Law Knowledge Base**")
     
     kb_tabs = st.tabs(["📖 Library", "🎓 Training", "⚖️ Case Law", "📋 Checklists", "🔧 Tools"])
     
@@ -1251,7 +1251,7 @@ with tab6:
 st.markdown("---")
 st.markdown("""
 <div class="footer">
-    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">⚖️ TRACTION LAW</div>
+    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">⚖️ LUCKY STRIKE LAW</div>
     <div style="margin-bottom: 1rem;">
         <a href="#">Privacy Policy</a> • 
         <a href="#">Terms of Service</a> • 
@@ -1259,7 +1259,7 @@ st.markdown("""
         <a href="#">Support</a>
     </div>
     <div style="opacity: 0.7; font-size: 0.9rem;">
-        © 2025 Traction Law Inc. All rights reserved. | Enterprise Contract Intelligence Platform
+        © 2025 LUCKY STRIKE Law Inc. All rights reserved. | Enterprise Contract Intelligence Platform
     </div>
     <div style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.5;">
         Version 2.0.0 | Build 2025.03 | Certified for Enterprise Use
@@ -1280,6 +1280,7 @@ if auto_save and len(st.session_state.uploaded_contracts) > 0:
         st.session_state.last_save = datetime.now()
 
         st.toast("💾 Project auto-saved", icon="✅")
+
 
 
 
